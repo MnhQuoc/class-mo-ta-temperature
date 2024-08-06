@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Temperature</title>
+</head>
+<body>
+<h1>Temperature </h1>
+<br>Nhập nhiệt độ <input type="text" id="doC" placeholder="Độ C"> </br>
+<br>
+<button style="width:130px; height:30px" onclick="result()">Quy Đổi</button>
+<p id="doF"></p>
+<p id="doK"></p>
+</body>
+<script>
+    class Temperature {
+        celsius;
+
+        constructor(celsius) {
+            this.celsius = celsius;
+        }
+
+        fahrenheit() {
+            return 9 / 5 * this.celsius + 32;
+        }
+
+        kelvins() {
+            return this.celsius + 273.15
+        }
+    }
+
+    function result() {
+        let doC = +document.getElementById("doC").value;
+        let temperature = new Temperature(doC);
+        let doF = temperature.fahrenheit();
+        let doK = temperature.kelvins();
+        document.getElementById("doF").innerHTML = "Nhiệt độ F: " + doF;
+        document.getElementById("doK").innerHTML = "Nhiệt độ K: " + doK;
+
+    }
+
+
+</script>
+</html>
